@@ -1,0 +1,34 @@
+name: amalgamate CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  linux:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Clone repositiory
+      run: git clone https://github.com/open62541/open62541.git
+
+    - name: Amalgamate
+      run: |
+        mkdir open62541/build
+        cd open62541/build
+        cmake -D UA_ENABLE_AMALGAMATION=ON ..
+        make
+
+    - name: Archive
+      uses: actions/upload-artifact@v3
+      with:
+        name: open62541_amalgamate
+        path: |
+          open62541/build/open62541.h
+          open62541/build/open62541.c
+          open62541/build/bin/libopen62541.a
