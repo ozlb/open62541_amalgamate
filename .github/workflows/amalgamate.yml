@@ -14,8 +14,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Clone repositiory
-      run: git clone https://github.com/open62541/open62541.git
+    - uses: actions/checkout@v3
+      with:
+        repository: open62541/open62541
+        path: open62541
+
+# use checkout action to clone existing github repository
+#    - name: Clone repositiory
+#      run: git clone https://github.com/open62541/open62541.git
 
     - name: Amalgamate
       run: |
