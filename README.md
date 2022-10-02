@@ -1,2 +1,3 @@
-# open62541_amalgamate
-Amalgamate latest open62541 version
+# open62541 OPC Unified Architecture
+
+Amalgamate [https://github.com/open62541/open62541]
