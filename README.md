@@ -2,4 +2,4 @@
 
 Amalgamate [https://github.com/open62541/open62541]
 
-updated on 2024/01/08
+updated on 2025/01/16
