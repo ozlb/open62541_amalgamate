@@ -21,7 +21,7 @@ jobs:
       run: |
         mkdir open62541/build
         cd open62541/build
-        cmake -D UA_ENABLE_AMALGAMATION=ON ..
+        cmake -D UA_ARCHITECTURE=amalgamation -D CMAKE_BUILD_TYPE=Release ..
         make
 
     - name: Archive
