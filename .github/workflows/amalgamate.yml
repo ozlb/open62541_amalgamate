@@ -21,7 +21,7 @@ jobs:
       run: |
         mkdir open62541/build
         cd open62541/build
-        cmake -D UA_ARCHITECTURE=amalgamation -D CMAKE_BUILD_TYPE=Release ..
+        cmake -D UA_ARCHITECTURE=amalgamation -D UA_ENABLE_AMALGAMATION=ON -D CMAKE_BUILD_TYPE=Release ..
         make
 
     - name: Create zip with artifacts
