@@ -24,11 +24,13 @@ jobs:
         cmake -D UA_ARCHITECTURE=amalgamation -D CMAKE_BUILD_TYPE=Release ..
         make
 
-    - name: Archive
+    - name: Create zip with artifacts
+      run: |
+        zip -j artifacts.zip open62541/build/open62541.h open62541/build/open62541.c open62541/build/bin/libopen62541.a
+    
+    - name: Upload archive
       uses: actions/upload-artifact@v4
       with:
         name: open62541_amalgamate
-        path: |
-          open62541/build/open62541.h
-          open62541/build/open62541.c
-          open62541/build/bin/libopen62541.a
+        path: artifacts.zip
+
